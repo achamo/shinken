@@ -1,46 +1,67 @@
-From: Arthur Gautier <superbaloo@superbaloo.net>
-Date: Mon, 7 Jan 2013 20:10:57 +0100
-Subject: Fix log directories
+commit 3ea41913f26937e1d5645a1a5b374c92c67a8f70
+Author: Arnaud Chong <achong@ocs.online.net>
+Date:   Thu Sep 19 15:20:00 2013 +0000
 
----
- etc/brokerd.ini      |    2 +-
- etc/pollerd.ini      |    2 +-
- etc/reactionnerd.ini |    2 +-
- etc/receiverd.ini    |    2 +-
- etc/schedulerd.ini   |    2 +-
- 5 files changed, 5 insertions(+), 5 deletions(-)
+    fix paths
 
-diff --git a/etc/brokerd.ini b/etc/brokerd.ini
-index aa84ccb..7d49f81 100644
---- a/etc/brokerd.ini
-+++ b/etc/brokerd.ini
-@@ -31,7 +31,7 @@ hard_ssl_name_check=0
- #-- Local log management --
+Index: shinken-1.4/etc/brokerd.ini
+===================================================================
+--- shinken-1.4.orig/etc/brokerd.ini	2013-09-19 15:33:35.000000000 +0000
++++ shinken-1.4/etc/brokerd.ini	2013-09-19 15:33:35.000000000 +0000
+@@ -8,7 +8,7 @@
+ 
+ #user=shinken         ; by default it's the current user
+ #group=shinken        ; by default it's the current group
+-#pidfile=%(workdir)s/brokerd.pid
++pidfile=/var/run/shinken/brokerd.pid
+ 
+ #host=0.0.0.0
+ #port=7772
+@@ -32,7 +32,7 @@
  # Enabled by default to ease troubleshooting
  use_local_log=1
--local_log=brokerd.log
+ 
+-#local_log=%(workdir)s/brokerd.log
 +local_log=/var/log/shinken/brokerd.log
  
  # accepted log level values= DEBUG,INFO,WARNING,ERROR,CRITICAL
  log_level=WARNING
-diff --git a/etc/pollerd.ini b/etc/pollerd.ini
-index 8d521cd..7f6ecd2 100644
---- a/etc/pollerd.ini
-+++ b/etc/pollerd.ini
-@@ -32,7 +32,7 @@ daemon_enabled=1
- #-- Local log management --
+Index: shinken-1.4/etc/pollerd.ini
+===================================================================
+--- shinken-1.4.orig/etc/pollerd.ini	2013-09-19 15:33:35.000000000 +0000
++++ shinken-1.4/etc/pollerd.ini	2013-09-19 15:33:35.000000000 +0000
+@@ -9,7 +9,7 @@
+ 
+ # user=shinken         ; if not set then by default it's the current user.
+ # group=shinken        ; if not set then by default it's the current group.
+-#pidfile=%(workdir)s/pollerd.pid
++pidfile=/var/run/shinken/pollerd.pid
+ 
+ # host=0.0.0.0
+ # port=7771
+@@ -34,7 +34,7 @@
  # Enabled by default to ease troubleshooting
  use_local_log=1
--local_log=pollerd.log
+ 
+-#local_log=%(workdir)s/pollerd.log
 +local_log=/var/log/shinken/pollerd.log
  
  # accepted log level values= DEBUG,INFO,WARNING,ERROR,CRITICAL
  log_level=WARNING
-diff --git a/etc/reactionnerd.ini b/etc/reactionnerd.ini
-index fd72627..2c70b89 100644
---- a/etc/reactionnerd.ini
-+++ b/etc/reactionnerd.ini
-@@ -23,7 +23,7 @@ hard_ssl_name_check=0
+Index: shinken-1.4/etc/reactionnerd.ini
+===================================================================
+--- shinken-1.4.orig/etc/reactionnerd.ini	2013-09-19 15:33:35.000000000 +0000
++++ shinken-1.4/etc/reactionnerd.ini	2013-09-19 15:33:35.000000000 +0000
+@@ -1,7 +1,7 @@
+ [daemon]
+ # Paths are relative to this config file
+ #workdir=../var
+-#pidfile=%(workdir)s/reactionnerd.pid
++pidfile=/var/run/shinken/reactionnerd.pid
+ interval_poll=5
+ maxfd=1024
+ port=7769
+@@ -23,7 +23,7 @@
  #-- Local log management --
  # Enabled by default to ease troubleshooting
  use_local_log=1
@@ -49,11 +70,20 @@ index fd72627..2c70b89 100644
  
  # accepted log level values= DEBUG,INFO,WARNING,ERROR,CRITICAL
  log_level=WARNING
-diff --git a/etc/receiverd.ini b/etc/receiverd.ini
-index 1f1c4e3..9a16f18 100644
---- a/etc/receiverd.ini
-+++ b/etc/receiverd.ini
-@@ -23,7 +23,7 @@ hard_ssl_name_check=0
+Index: shinken-1.4/etc/receiverd.ini
+===================================================================
+--- shinken-1.4.orig/etc/receiverd.ini	2013-09-19 15:33:35.000000000 +0000
++++ shinken-1.4/etc/receiverd.ini	2013-09-19 15:33:35.000000000 +0000
+@@ -1,7 +1,7 @@
+ [daemon]
+ # Paths are relative to this config file
+ #workdir=../var
+-#pidfile=%(workdir)s/receiverd.pid
++pidfile=/var/run/shinken/receiverd.pid
+ interval_poll=5
+ maxfd=1024
+ port=7773
+@@ -23,7 +23,7 @@
  #-- Local log management --
  # Enabled by default to ease troubleshooting
  use_local_log=1
@@ -62,11 +92,20 @@ index 1f1c4e3..9a16f18 100644
  
  # accepted log level values= DEBUG,INFO,WARNING,ERROR,CRITICAL
  log_level=WARNING
-diff --git a/etc/schedulerd.ini b/etc/schedulerd.ini
-index 2ddc13e..a272996 100644
---- a/etc/schedulerd.ini
-+++ b/etc/schedulerd.ini
-@@ -21,7 +21,7 @@ hard_ssl_name_check=0
+Index: shinken-1.4/etc/schedulerd.ini
+===================================================================
+--- shinken-1.4.orig/etc/schedulerd.ini	2013-09-19 15:33:35.000000000 +0000
++++ shinken-1.4/etc/schedulerd.ini	2013-09-19 15:33:35.000000000 +0000
+@@ -1,7 +1,7 @@
+ [daemon]
+ # Paths are relative to this config file
+ #workdir=../var
+-#pidfile=%(workdir)s/schedulerd.pid
++pidfile=/var/run/shinken/schedulerd.pid
+ port=7768
+ #host=0.0.0.0
+ #user=shinken
+@@ -22,7 +22,7 @@
  #-- Local log management --
  # Enabled by default to ease troubleshooting
  use_local_log=1

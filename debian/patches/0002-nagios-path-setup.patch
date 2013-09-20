@@ -6,10 +6,10 @@ Subject: nagios-path-setup
  setup.cfg |    4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/setup.cfg b/setup.cfg
-index 0714bd6..0109ed6 100644
---- a/setup.cfg
-+++ b/setup.cfg
+Index: shinken-1.4/setup.cfg
+===================================================================
+--- shinken-1.4.orig/setup.cfg	2013-09-19 15:07:26.000000000 +0000
++++ shinken-1.4/setup.cfg	2013-09-19 15:07:26.000000000 +0000
 @@ -1,7 +1,7 @@
  [install]
  #sysconfigdir = /etc

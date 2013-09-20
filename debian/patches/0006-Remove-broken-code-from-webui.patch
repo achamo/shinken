@@ -7,11 +7,10 @@ Subject: Remove broken code from webui
  1 file changed, 35 deletions(-)
  delete mode 100644 shinken/webui/plugins/eue/test.py
 
-diff --git a/shinken/webui/plugins/eue/test.py b/shinken/webui/plugins/eue/test.py
-deleted file mode 100644
-index 98b3520..0000000
---- a/shinken/webui/plugins/eue/test.py
-+++ /dev/null
+Index: shinken-1.4/shinken/webui/plugins/eue/test.py
+===================================================================
+--- shinken-1.4.orig/shinken/webui/plugins/eue/test.py	2013-09-19 15:29:17.000000000 +0000
++++ /dev/null	1970-01-01 00:00:00.000000000 +0000
 @@ -1,35 +0,0 @@
 -from pymongo.connection import Connection
 -

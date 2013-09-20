@@ -1,22 +1,19 @@
-From: Arthur Gautier <superbaloo@superbaloo.net>
-Date: Tue, 8 Jan 2013 11:12:37 +0100
-Subject: Do not start shinken by default
+commit 73c18ebe6168e9a3ae97592cb100fc6486583fad
+Author: Arnaud Chong <achong@ocs.online.net>
+Date:   Thu Sep 19 15:58:56 2013 +0000
 
----
- bin/default/shinken.in |    6 ++++++
- 1 file changed, 6 insertions(+)
+    kill switch
 
-diff --git a/bin/default/shinken.in b/bin/default/shinken.in
-index 6122f4e..98295db 100644
---- a/bin/default/shinken.in
-+++ b/bin/default/shinken.in
-@@ -145,3 +145,9 @@ NICENESS=5
- # user/group for the var/run rights
+Index: shinken-1.4/bin/default/shinken.in
+===================================================================
+--- shinken-1.4.orig/bin/default/shinken.in	2013-09-19 15:59:48.000000000 +0000
++++ shinken-1.4/bin/default/shinken.in	2013-09-19 15:59:48.000000000 +0000
+@@ -146,3 +146,8 @@
  SHINKENUSER=nagios
  SHINKENGROUP=nagios
+ HOME=`grep ^$SHINKENUSER: /etc/passwd | cut -d: -f 6`
 +
 +# Kill switch
 +# Comment out this line to enable shinken
 +exit 99
-+
 +

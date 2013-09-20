@@ -1,29 +1,28 @@
-From: Arthur Gautier <superbaloo@superbaloo.net>
-Date: Mon, 7 Jan 2013 22:20:43 +0100
-Subject: Fix skonf default conf
+commit 35408908a673084710e562e294aa30a6ead4d389
+Author: Arnaud Chong <achong@ocs.online.net>
+Date:   Thu Sep 19 15:32:38 2013 +0000
 
----
- etc/skonf.cfg |    4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+    fix skonf.cfg
 
-diff --git a/etc/skonf.cfg b/etc/skonf.cfg
-index 6afb1ac..4ad6bee 100644
---- a/etc/skonf.cfg
-+++ b/etc/skonf.cfg
-@@ -1,6 +1,6 @@
- 
+Index: shinken-1.4/etc/skonf.cfg
+===================================================================
+--- shinken-1.4.orig/etc/skonf.cfg	2013-09-19 15:55:52.000000000 +0000
++++ shinken-1.4/etc/skonf.cfg	2013-09-19 15:56:07.000000000 +0000
+@@ -1,5 +1,5 @@
  # Log file of the discovery command
 -log_file=/tmp/skonf.log
 +log_file=/var/log/shinken/skonf.log
  
- 
  # Configuration files with common discovery objects
-@@ -45,7 +45,7 @@ strip_idname_fqdn=1
- runners_timeout=3600
+ # like discoveryrules or runners
+@@ -42,8 +42,8 @@
  
- # Where we will dump all templates, pictures, from packs
--share_dir=/var/lib/shinken/share
-+share_dir=/var/lib/nagios/skonf
+ # User that will be used by the arbiter. 
+ # If commented, run as current user (root?)
+-shinken_user=shinken
+-shinken_group=shinken
++shinken_user=nagios
++shinken_group=nagios
  
- # Where in your configuration you have your "packs". By default in etc/packs
- packs_home=/etc/shinken/packs
+ # Strip FQDN of the name ID to keep only the
+ # basename of the element
