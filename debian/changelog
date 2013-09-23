@@ -1,6 +1,6 @@
-shinken (1.4) unstable; urgency=low
+shinken (1.4.0-1) unstable; urgency=low
 
-  * 
+  * Upgrade to 1.4
 
  -- Arnaud Chong <shine@achamo.net>  Fri, 20 Sep 2013 17:01:59 +0000
 
